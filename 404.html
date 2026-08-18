@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Govind Web Studio</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css?v=3.10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 0 5rem;
+        }
+        .error-code {
+            font-size: 10rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 50px var(--primary-glow);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- NAVBAR (REUSABLE COMPONENT) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/917257997915" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+                <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Drawer -->
+    <!-- PREMIUM MOBILE MENU OVERRIDE -->
+        <div class="mobile-menu">
+        <div class="pmm-bg-glow"></div>
+        <div class="pmm-header">
+            <a href="index.html" class="pmm-brand">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            <div class="pmm-actions">
+                <a href="https://wa.me/917257997915" target="_blank" aria-label="Chat on WhatsApp" class="pmm-wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <button class="pmm-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="pmm-links">
+            <a href="index.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-house"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Home</span>
+                    <span class="pmm-desc">Welcome to my digital space</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="services.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Services</span>
+                    <span class="pmm-desc">What I can do for you</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="portfolio.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Portfolio</span>
+                    <span class="pmm-desc">My recent work & projects</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="pricing.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-tag"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Pricing</span>
+                    <span class="pmm-desc">Simple, transparent pricing</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="process.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Process</span>
+                    <span class="pmm-desc">My 6-step workflow</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="about.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-users"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">About</span>
+                    <span class="pmm-desc">Know more about me</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+        </div>
+        <a href="contact.html" class="btn btn-primary pmm-cta">Get Free Quote &rarr;</a>
+    </div>
+
+    <!-- ERROR SECTION -->
+    <section class="error-section">
+        <div class="container fade-up">
+            <div class="error-code">404</div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Page Not Found</h2>
+            <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home</a>
+        </div>
+    </section>
+
+    <!-- FOOTER (REUSABLE COMPONENT) -->
+    <footer class="footer">
+        <div class="container fade-up">
+            <div class="footer-grid">
+                
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="logo.png" alt="Govind Web Studio Logo">
+                    </a>
+                    <p>We help businesses and brands build modern, fast, responsive and SEO-friendly websites that turn visitors into customers.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a>
+                        <a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a>
+                        <a href="services.html"><i class="fa-solid fa-chevron-right"></i> Services</a>
+                        <a href="portfolio.html"><i class="fa-solid fa-chevron-right"></i> Portfolio</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="pricing.html"><i class="fa-solid fa-chevron-right"></i> Pricing</a>
+                        <a href="process.html"><i class="fa-solid fa-chevron-right"></i> Process</a>
+                        <a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a>
+                        <a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="footer-links">
+                        <a href="tel:+917257997915"><i class="fa-solid fa-phone" style="opacity:1; transform:none;"></i> +91 72579 97915</a>
+                        <a href="mailto:govindmandalgo7257@gmail.com"><i class="fa-solid fa-envelope" style="opacity:1; transform:none;"></i> govindmandalgo7257@gmail.com</a>
+                        <a href="https://wa.me/917257997915" target="_blank" style="margin-top: 1rem; color: var(--primary);">
+                            Chat on WhatsApp <i class="fa-solid fa-arrow-right" style="opacity:1; transform:none; margin-left: 5px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Govind Web Studio. All Rights Reserved.</div>
+                <div>Designed & Developed by Govind Web Studio</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

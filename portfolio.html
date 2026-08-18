@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Govind Web Studio</title>
+    <meta name="description" content="Explore our premium portfolio of modern, responsive websites built for businesses, restaurants, gyms, and e-commerce stores.">
+    <link rel="canonical" href="https://govindwebstudio.com/portfolio.html">
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Portfolio | Govind Web Studio">
+    <meta property="og:description" content="Explore our premium portfolio of modern, responsive websites.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="css/style.css?v=3.10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mobile Menu Override for Portfolio */
+        @media (max-width: 768px) {
+            .mobile-menu.portfolio-mobile-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                position: fixed !important;
+                top: 0 !important;
+                right: 0 !important;
+                height: 100vh !important;
+                width: 100vw !important;
+                max-width: 390px !important;
+                background: linear-gradient(145deg, rgba(5, 5, 12, 0.95), rgba(15, 20, 30, 0.98)) !important;
+                backdrop-filter: blur(25px) !important;
+                -webkit-backdrop-filter: blur(25px) !important;
+                padding: 0 !important;
+                gap: 0 !important;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(100%);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s !important;
+                z-index: 10000 !important;
+                border-left: 1px solid rgba(0, 242, 254, 0.15) !important;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6) !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+            }
+            .mobile-menu.portfolio-mobile-menu.active {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateX(0) !important;
+            }
+            .pmm-bg-glow {
+                position: absolute;
+                top: -20%; left: -20%;
+                width: 140%; height: 140%;
+                background: radial-gradient(circle at 80% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
+                            radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+                pointer-events: none;
+                z-index: -1;
+            }
+            .pmm-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 1.2rem 1.5rem !important;
+                border-bottom: 1px solid rgba(0, 242, 254, 0.1) !important;
+                background: rgba(0,0,0,0.2) !important;
+            }
+            .pmm-brand img {
+                height: 28px !important;
+                width: auto !important;
+                display: block !important;
+            }
+            .pmm-actions {
+                display: flex !important;
+                align-items: center !important;
+                gap: 1.25rem !important;
+            }
+            .pmm-wa {
+                color: #25d366 !important;
+                font-size: 1.5rem !important;
+                display: flex !important;
+            }
+            .pmm-close {
+                background: transparent !important;
+                border: none !important;
+                color: #fff !important;
+                font-size: 1.6rem !important;
+                padding: 0.2rem !important;
+                cursor: pointer !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                transition: transform 0.4s ease, color 0.3s ease !important;
+            }
+            .pmm-close:hover {
+                transform: rotate(90deg) scale(1.1) !important;
+                color: #00f2fe !important;
+            }
+            .pmm-links {
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 1.5rem !important;
+                gap: 0.75rem !important;
+            }
+            .pmm-link-item {
+                display: flex !important;
+                align-items: center !important;
+                text-decoration: none !important;
+                padding: 0.75rem 1rem !important;
+                border-radius: 12px !important;
+                background: rgba(255, 255, 255, 0.02) !important;
+                border: 1px solid rgba(255, 255, 255, 0.05) !important;
+                transition: all 0.3s ease !important;
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            .mobile-menu.active .pmm-link-item {
+                animation: slideInNav 0.5s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+            }
+            .mobile-menu.active .pmm-link-item:nth-child(1) { animation-delay: 0.1s; }
+            .mobile-menu.active .pmm-link-item:nth-child(2) { animation-delay: 0.15s; }
+            .mobile-menu.active .pmm-link-item:nth-child(3) { animation-delay: 0.2s; }
+            .mobile-menu.active .pmm-link-item:nth-child(4) { animation-delay: 0.25s; }
+            .mobile-menu.active .pmm-link-item:nth-child(5) { animation-delay: 0.3s; }
+            .mobile-menu.active .pmm-link-item:nth-child(6) { animation-delay: 0.35s; }
+            .mobile-menu.active .pmm-link-item:nth-child(7) { animation-delay: 0.4s; }
+            .mobile-menu.active .pmm-link-item:nth-child(8) { animation-delay: 0.45s; }
+            
+            @keyframes slideInNav {
+                to { opacity: 1; transform: translateX(0); }
+            }
+            
+            .pmm-link-item:hover, .pmm-link-item:active {
+                background: rgba(0, 242, 254, 0.05) !important;
+                border-color: rgba(0, 242, 254, 0.3) !important;
+                transform: scale(1.02) !important;
+                box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1) !important;
+            }
+            .pmm-link-item.active {
+                background: rgba(0, 242, 254, 0.08) !important;
+                border-color: rgba(0, 242, 254, 0.5) !important;
+                box-shadow: 0 0 15px rgba(0, 242, 254, 0.2) !important;
+                animation: navActivePulse 2s infinite;
+            }
+            @keyframes navActivePulse {
+                0%, 100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
+                50% { box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
+            }
+            
+            .pmm-icon-wrap {
+                width: 36px !important;
+                height: 36px !important;
+                border-radius: 50% !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                color: var(--text-secondary) !important;
+                margin-right: 12px !important;
+                font-size: 14px !important;
+                transition: all 0.3s ease !important;
+                flex-shrink: 0 !important;
+            }
+            .pmm-link-item.active .pmm-icon-wrap, .pmm-link-item:hover .pmm-icon-wrap {
+                background: #00f2fe !important;
+                color: #000 !important;
+                box-shadow: 0 0 12px #00f2fe !important;
+            }
+            
+            .pmm-text-wrap {
+                flex-grow: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+            }
+            .pmm-title {
+                color: #fff !important;
+                font-size: 1.05rem !important;
+                font-weight: 600 !important;
+                line-height: 1.2 !important;
+                transition: all 0.3s ease !important;
+            }
+            .pmm-link-item.active .pmm-title {
+                color: #00f2fe !important;
+                text-shadow: 0 0 8px rgba(0, 242, 254, 0.5) !important;
+            }
+            .pmm-desc {
+                color: var(--text-secondary) !important;
+                font-size: 0.75rem !important;
+                margin-top: 2px !important;
+                font-weight: 400 !important;
+            }
+            
+            .pmm-arrow {
+                color: var(--text-secondary) !important;
+                font-size: 0.8rem !important;
+                transition: all 0.3s ease !important;
+                opacity: 0.5 !important;
+            }
+            .pmm-link-item:hover .pmm-arrow, .pmm-link-item.active .pmm-arrow {
+                color: #00f2fe !important;
+                opacity: 1 !important;
+                transform: translateX(4px) !important;
+            }
+            
+            .pmm-cta {
+                margin: 0.5rem 1.5rem 2rem 1.5rem !important;
+                width: calc(100% - 3rem) !important;
+                box-sizing: border-box !important;
+                animation: slideInNav 0.5s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+                animation-delay: 0.5s;
+                opacity: 0;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .mobile-menu.portfolio-mobile-menu { transition: opacity 0.3s !important; transform: none !important; }
+                .pmm-link-item { transition: none !important; transform: none !important; opacity: 1 !important; animation: none !important; }
+                .pmm-cta { animation: none !important; opacity: 1 !important; }
+                .pmm-link-item.active { animation: none !important; }
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- BACKGROUND EFFECTS -->
+    <div class="bg-effects">
+        <div class="energy-wave"></div>
+        <div class="energy-wave"></div>
+        <!-- JS particles will inject here -->
+    </div>
+
+    <!-- ==========================================
+         NAVBAR
+         ========================================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/917257997915" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="contact.html" class="btn btn-primary">Get Free Quote &rarr;</a>
+                <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PREMIUM MOBILE MENU OVERRIDE -->
+    <div class="mobile-menu portfolio-mobile-menu">
+        <div class="pmm-bg-glow"></div>
+        <div class="pmm-header">
+            <a href="index.html" class="pmm-brand">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            <div class="pmm-actions">
+                <a href="https://wa.me/917257997915" target="_blank" aria-label="Chat on WhatsApp" class="pmm-wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <button class="pmm-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="pmm-links">
+            <a href="index.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-house"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Home</span>
+                    <span class="pmm-desc">Back to main page</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="services.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Services</span>
+                    <span class="pmm-desc">What we offer</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="portfolio.html" class="pmm-link-item active">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Portfolio</span>
+                    <span class="pmm-desc">Our best work</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="pricing.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-tag"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Pricing</span>
+                    <span class="pmm-desc">Transparent plans</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="process.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Process</span>
+                    <span class="pmm-desc">How we work</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="about.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-users"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">About</span>
+                    <span class="pmm-desc">Who we are</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="blog.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Blog</span>
+                    <span class="pmm-desc">Latest insights</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="contact.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Contact</span>
+                    <span class="pmm-desc">Get in touch</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+        </div>
+        <a href="contact.html" class="btn btn-primary pmm-cta">Get Free Quote &rarr;</a>
+    </div>
+
+    <!-- ==========================================
+         PAGE HEADER
+         ========================================== -->
+    <header class="page-header fade-up">
+        <div class="container">
+            <span class="section-label">OUR WORK</span>
+            <h1>Websites That Stand <span class="text-gradient">Out</span></h1>
+            <p>Browse our collection of premium, high-converting digital experiences designed to elevate brands and drive real growth.</p>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         PORTFOLIO GRID
+         ========================================== -->
+    <section style="padding-bottom: 8rem;">
+        <div class="container">
+            <!-- Filters -->
+            <div class="portfolio-filters fade-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+                <button class="filter-btn" data-filter="gym">Gym</button>
+                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="photography">Photography</button>
+                <button class="filter-btn" data-filter="salon">Salon</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="portfolio-grid fade-up">
+                
+                <div class="portfolio-card portfolio-item" data-category="restaurant">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <p>Fine Dining</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card portfolio-item" data-category="gym">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Fitness Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Fitness/Gym Website</h3>
+                        <p>Health Club</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card portfolio-item" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Coaching Institute" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Coaching Institute</h3>
+                        <p>Education</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card portfolio-item" data-category="photography">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80" alt="Photography Studio" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Photography Studio</h3>
+                        <p>Portfolio</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card portfolio-item" data-category="salon">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Salon & Beauty" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Salon & Beauty</h3>
+                        <p>Wellness</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card portfolio-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Store" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Store</h3>
+                        <p>Online Retail</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card portfolio-item" data-category="business">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Corporate Business" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Agency</h3>
+                        <p>Business</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card portfolio-item" data-category="business">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80" alt="Startup Website" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>SaaS Startup</h3>
+                        <p>Business</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card portfolio-item" data-category="ecommerce">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Boutique Store" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Boutique Fashion</h3>
+                        <p>E-Commerce</p>
+                        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">View Live Demo &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;" class="fade-up">
+                <a href="contact.html" class="btn btn-outline">Want a Website Like These? Get a Quote &rarr;</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container fade-up">
+            <div class="footer-grid">
+                
+                <!-- Col 1 -->
+                <div class="footer-brand">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Govind Web Studio Logo">
+                    </a>
+                    <p style="margin-top: 0; color: var(--primary); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">DESIGN • DEVELOP • GROW</p>
+                    <p style="margin-top: 1.5rem;">We help businesses and brands build modern, fast and SEO-friendly websites that bring real growth and customers.</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="footer-title">COMPANY</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="footer-title">SERVICES</h4>
+                    <div class="footer-links">
+                        <a href="services.html">Website Development</a>
+                        <a href="services.html">E-Commerce Websites</a>
+                        <a href="services.html">Landing Pages</a>
+                        <a href="services.html">SEO & Optimization</a>
+                        <a href="services.html">Website Redesign</a>
+                        <a href="services.html">Website Maintenance</a>
+                    </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="footer-title">QUICK LINKS</h4>
+                    <div class="footer-links" style="margin-bottom: 2rem;">
+                        <a href="pricing.html">Pricing</a>
+                        <a href="process.html">Process</a>
+                        <a href="#">FAQs</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                    
+                    <h4 class="footer-title">CONTACT US</h4>
+                    <div class="footer-links">
+                        <a href="tel:+917257997915">+91 72579 97915</a>
+                        <a href="mailto:govindmandalgo7257@gmail.com">govindmandalgo7257@gmail.com</a>
+                        <p style="color: var(--text-secondary); margin: 0;">India</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Govind Web Studio. All Rights Reserved.</div>
+                <div>Made with ❤️ by Govind Web Studio.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917257997915" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup custom close behavior for the new Premium Mobile Nav Drawer
+            const pmmClose = document.querySelector('.pmm-close');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileToggleIcon = document.querySelector('.mobile-toggle i');
+            
+            if (pmmClose && mobileMenu) {
+                pmmClose.addEventListener('click', () => {
+                    // Slide out animation
+                    mobileMenu.classList.remove('active');
+                    // Reset original toggle icon state
+                    if (mobileToggleIcon) {
+                        mobileToggleIcon.classList.remove('fa-xmark');
+                        mobileToggleIcon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

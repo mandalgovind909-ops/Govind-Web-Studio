@@ -1,0 +1,111 @@
+The following is a <SYSTEM_MESSAGE> not actually sent by the user. It is provided by the system as important information to pay attention to.
+
+<SYSTEM_MESSAGE>
+[Message] timestamp=2026-08-14T15:25:29Z sender=b74d4e1f-794f-4891-bba8-86083f7ec73b/task-1576 priority=MESSAGE_PRIORITY_HIGH content=Task id "b74d4e1f-794f-4891-bba8-86083f7ec73b/task-1576" finished with result:
+
+				The command exited with code 0.
+				Output:
+				1: @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+2: 
+3: :root {
+4: /* Brand Colors */
+5: --bg-main: #02040A;
+6: --bg-surface: #060B14;
+7: --bg-glass: rgba(10, 15, 26, 0.4);
+8: --bg-card: rgba(15, 23, 42, 0.3);
+9: 
+10: --primary: #00E5FF;
+11: --primary-glow: rgba(0, 229, 255, 0.3);
+12: --secondary: #0066FF;
+13: 
+14: --text-primary: #FFFFFF;
+15: --text-secondary: #94A3B8;
+16: 
+17: --border-subtle: rgba(255, 255, 255, 0.08);
+18: --border-glow: rgba(0, 229, 255, 0.2);
+19: 
+20: /* Typography */
+21: --font-heading: 'Outfit', sans-serif;
+22: --font-body: 'Inter', sans-serif;
+23: 
+24: /* Effects */
+25: --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+26: --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 229, 255, 0.15);
+27: --blur-strong: blur(24px);
+28: 
+29: /* Layout */
+30: --navbar-height: 90px;
+31: }
+32: 
+33: /* ==========================================================================
+34: RESET & GLOBAL
+35: ========================================================================== */
+36: * { margin: 0; padding: 0; box-sizing: border-box; }
+37: 
+38: html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-main); }
+39: 
+40: body {
+41: font-family: var(--font-body);
+42: color: var(--text-primary);
+43: line-height: 1.6;
+44: overflow-x: hidden;
+45: -webkit-font-smoothing: antialiased;
+46: background-color: var(--bg-main);
+47: }
+48: 
+49: /* ==========================================================================
+50: BACKGROUND EFFECTS (PREMIUM AMBIENT SYSTEM)
+51: ========================================================================== */
+52: body {
+53: background: radial-gradient(circle at top center, #050B18 0%, #02040A 100%);
+54: background-attachment: fixed;
+55: }
+56: 
+57: .bg-effects {
+58: position: fixed;
+59: top: 0; left: 0; width: 100vw; height: 100vh;
+60: z-index: -1;
+61: pointer-events: none;
+62: overflow: hidden;
+63: perspective: 1000px;
+64: }
+65: 
+66: /* Futuristic Grid */
+67: .futuristic-grid {
+68: position: absolute;
+69: width: 200vw; height: 200vh;
+70: top: -50%; left: -50%;
+71: background-image:
+72: linear-gradient(rgba(0, 229, 255, 0.035) 1px, transparent 1px),
+73: linear-gradient(90deg, rgba(0, 229, 255, 0.035) 1px, transparent 1px);
+74: background-size: 60px 60px;
+75: transform: rotateX(60deg) translateY(0);
+76: animation: panGrid 40s linear infinite;
+77: opacity: 0.8;
+78: }
+79: @keyframes panGrid {
+80: 0% { transform: rotateX(60deg) translateY(0); }
+81: 100% { transform: rotateX(60deg) translateY(60px); }
+82: }
+83: 
+84: /* Ambient Orbs */
+85: .ambient-orb {
+86: position: absolute; border-radius: 50%; filter: blur(80px);
+87: z-index: 0; pointer-events: none; opacity: 0.6; mix-blend-mode: screen;
+88: will-change: transform;
+89: animation: floatOrb 25s ease-in-out infinite alternate;
+90: }
+91: .orb-1 { width: 600px; height: 600px; background: rgba(0, 180, 255, 0.5); top: -10%; left: -10%; animation-delay: 0s; }
+92: .orb-2 { width: 500px; height: 500px; background: rgba(0, 100, 255, 0.4); bottom: -10%; right: -10%; animation-delay: -5s; }
+93: .orb-3 { width: 700px; height: 700px; background: rgba(0, 229, 255, 0.5); top: 30%; left: 50%; animation-delay: -10s; }
+94: .orb-4 { width: 600px; height: 600px; background: rgba(0, 229, 255, 0.3); top: 50%; left: 10%; animation-delay: -15s; }
+95: .orb-5 { width: 800px; height: 800px; background: rgba(0, 100, 255, 0.3); bottom: 10%; left: 40%; animation-delay: -2s; }
+96: 
+97: @keyframes floatOrb {
+98: 0% { transform: translate(0, 0) scale(1); }
+99: 50% { transform: translate(50px, 30px) scale(1.1); }
+100: 100% { transform: translate(-30px, -50px) scale(0.9); }
+
+
+Log: file:///C:/Users/Prem%20Mandal/.gemini/antigravity/brain/b74d4e1f-794f-4891-bba8-86083f7ec73b/.system_generated/tasks/task-1576.log
+</SYSTEM_MESSAGE>

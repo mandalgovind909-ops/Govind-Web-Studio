@@ -1,0 +1,25 @@
+import os
+import re
+
+w_css = r'C:\Users\Prem Mandal\Downloads\Govind_Web_Studio_Website\style.css'
+p_css = r'C:\Users\Prem Mandal\Downloads\Govind_Web_Studio_Premium\css\style.css'
+
+with open(w_css, 'r', encoding='utf-8') as f:
+    css = f.read()
+
+# Replace fonts
+css = css.replace("font-family: 'Sora', sans-serif;", "font-family: 'Outfit', sans-serif;")
+css = css.replace("font-family: 'Poppins', sans-serif;", "font-family: 'Inter', sans-serif;")
+css = css.replace("--font-heading: 'Sora', sans-serif;", "--font-heading: 'Outfit', sans-serif;")
+css = css.replace("--font-body: 'Poppins', sans-serif;", "--font-body: 'Inter', sans-serif;")
+
+# Replace colors to cyan/blue
+css = css.replace('#6C63FF', '#00e5ff') # primary
+css = css.replace('#7C3AED', '#00b8d4') # primary-purple -> darker cyan
+css = css.replace('#A855F7', '#00f2fe') # accent-glow
+
+# Make sure we don't overwrite if it's already there
+with open(p_css, 'w', encoding='utf-8') as f:
+    f.write(css)
+
+print('Restored a base CSS from the Website template.')

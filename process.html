@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | Govind Web Studio</title>
+    <meta name="description" content="Discover our proven 6-step website design and development process that guarantees quality and fast delivery.">
+    <link rel="canonical" href="https://govindwebstudio.com/process.html">
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Process | Govind Web Studio">
+    <meta property="og:description" content="Our proven 6-step development process ensures your project is delivered on-time, perfectly optimized, and ready for growth.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="css/style.css?v=3.10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mobile Specific Layout for Process Header (max-width: 580px) */
+        @media (max-width: 580px) {
+            .page-header {
+                padding-top: calc(var(--navbar-height) + 1.5rem) !important;
+                padding-bottom: 2rem !important;
+            }
+            .page-header .section-label {
+                margin-bottom: 0.5rem !important;
+            }
+            .page-header h1 {
+                font-size: clamp(28px, 8vw, 32px) !important;
+                line-height: 1.15 !important;
+                margin-bottom: 0.75rem !important;
+                max-width: 240px !important; /* Force 2-line natural wrap */
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            .page-header p {
+                font-size: 14px !important;
+                line-height: 1.5 !important;
+                max-width: 90% !important;
+            }
+
+            /* Premium Compact Mobile Timeline */
+            .timeline {
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            .timeline::before {
+                left: 20px !important;
+                width: 2px !important;
+                background: linear-gradient(to bottom, var(--primary-glow) 0%, rgba(0,255,255,0.1) 100%) !important;
+                box-shadow: 0 0 10px var(--primary-glow) !important;
+            }
+            .timeline-item {
+                padding-left: 50px !important;
+                margin-bottom: 1.25rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .timeline-number {
+                left: 6px !important;
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 0.8rem !important;
+                border: 1px solid var(--primary) !important;
+                background: var(--bg-dark) !important;
+                box-shadow: 0 0 10px var(--primary-glow) !important;
+                z-index: 10 !important;
+            }
+            .timeline-content {
+                padding: 12px 14px !important;
+                border-radius: 14px !important;
+                background: rgba(255, 255, 255, 0.04) !important;
+                border: 1px solid rgba(0, 190, 255, 0.25) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+                transition: transform 0.3s ease !important;
+            }
+            .timeline-content h3 {
+                font-size: 16px !important;
+                margin-bottom: 4px !important;
+                font-weight: 700 !important;
+                color: #fff !important;
+            }
+            .timeline-content p {
+                font-size: 13px !important;
+                line-height: 1.35 !important;
+                color: var(--text-secondary) !important;
+                margin: 0 !important;
+            }
+            /* Subtle alternating margins without overflow */
+            .timeline-item:nth-child(odd) {
+                padding-right: 10px !important;
+            }
+            .timeline-item:nth-child(even) {
+                padding-right: 2px !important;
+                padding-left: 58px !important; /* shifts card right by 8px */
+            }
+            /* Specific Neon Accents */
+            .timeline-item:nth-child(1) .timeline-number { border-color: #00f2fe !important; color: #00f2fe !important; }
+            .timeline-item:nth-child(2) .timeline-number { border-color: #4facfe !important; color: #4facfe !important; }
+            .timeline-item:nth-child(3) .timeline-number { border-color: #f093fb !important; color: #f093fb !important; }
+            .timeline-item:nth-child(4) .timeline-number { border-color: #f5576c !important; color: #f5576c !important; }
+            .timeline-item:nth-child(5) .timeline-number { border-color: #43e97b !important; color: #43e97b !important; }
+            .timeline-item:nth-child(6) .timeline-number { border-color: #fa709a !important; color: #fa709a !important; }
+            
+            /* Icons alignment */
+            .timeline-content h3 i {
+                font-size: 14px;
+                margin-right: 6px;
+                opacity: 0.9;
+                vertical-align: middle;
+            }
+            .timeline-item:nth-child(1) h3 i { color: #00f2fe; }
+            .timeline-item:nth-child(2) h3 i { color: #4facfe; }
+            .timeline-item:nth-child(3) h3 i { color: #f093fb; }
+            .timeline-item:nth-child(4) h3 i { color: #f5576c; }
+            .timeline-item:nth-child(5) h3 i { color: #43e97b; }
+            .timeline-item:nth-child(6) h3 i { color: #fa709a; }
+            
+            /* Animations */
+            .timeline-item.fade-up {
+                transform: translateY(20px) !important;
+                transition: opacity 0.5s ease-out, transform 0.5s ease-out !important;
+            }
+            .timeline-item.fade-up.visible {
+                transform: translateY(0) !important;
+            }
+            .timeline-content:active {
+                transform: scale(0.97) !important; /* Subtle tap lift */
+            }
+            
+            /* Glowing Progress Line */
+            .timeline-progress-line {
+                position: absolute;
+                left: 20px !important;
+                top: 0;
+                width: 2px !important;
+                background: linear-gradient(to bottom, #00f2fe, #43e97b) !important;
+                box-shadow: 0 0 12px #00f2fe !important;
+                height: 0%;
+                z-index: 1;
+                transition: height 0.1s linear;
+                pointer-events: none;
+            }
+            
+            /* Active Number Pulse */
+            .timeline-number { transition: all 0.3s ease !important; }
+            .timeline-number.active-pulse {
+                box-shadow: 0 0 15px currentColor, inset 0 0 8px currentColor !important;
+                transform: scale(1.15) !important;
+                background: currentColor !important;
+                color: #000 !important;
+            }
+            
+            #process-cta-btn {
+                width: 82% !important;
+                max-width: 260px !important;
+                height: 48px !important;
+                font-size: 14.5px !important;
+                padding: 0 12px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+                .timeline-item.fade-up { transition: none !important; transform: none !important; opacity: 1 !important; }
+                .timeline-content { transition: none !important; transform: none !important; }
+                .timeline-progress-line { transition: none !important; }
+                .timeline-number { transition: none !important; transform: none !important; }
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- BACKGROUND EFFECTS -->
+    <div class="bg-effects">
+        <div class="energy-wave"></div>
+        <div class="energy-wave"></div>
+        <!-- JS particles will inject here -->
+    </div>
+
+    <!-- ==========================================
+         NAVBAR
+         ========================================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="process.html" class="active">Process</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/917257997915" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="contact.html" class="btn btn-primary">Get Free Quote &rarr;</a>
+                <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+        <div class="mobile-menu">
+        <div class="pmm-bg-glow"></div>
+        <div class="pmm-header">
+            <a href="index.html" class="pmm-brand">
+                <img src="logo.png" alt="Govind Web Studio Logo">
+            </a>
+            <div class="pmm-actions">
+                <a href="https://wa.me/917257997915" target="_blank" aria-label="Chat on WhatsApp" class="pmm-wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <button class="pmm-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="pmm-links">
+            <a href="index.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-house"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Home</span>
+                    <span class="pmm-desc">Welcome to my digital space</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="services.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Services</span>
+                    <span class="pmm-desc">What I can do for you</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="portfolio.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Portfolio</span>
+                    <span class="pmm-desc">My recent work & projects</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="pricing.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-tag"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Pricing</span>
+                    <span class="pmm-desc">Simple, transparent pricing</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="process.html" class="pmm-link-item active">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">Process</span>
+                    <span class="pmm-desc">My 6-step workflow</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+            <a href="about.html" class="pmm-link-item">
+                <div class="pmm-icon-wrap"><i class="fa-solid fa-users"></i></div>
+                <div class="pmm-text-wrap">
+                    <span class="pmm-title">About</span>
+                    <span class="pmm-desc">Know more about me</span>
+                </div>
+                <i class="fa-solid fa-chevron-right pmm-arrow"></i>
+            </a>
+        </div>
+        <a href="contact.html" class="btn btn-primary pmm-cta">Get Free Quote &rarr;</a>
+    </div>
+
+    <!-- ==========================================
+         PAGE HEADER
+         ========================================== -->
+    <header class="page-header fade-up">
+        <div class="container">
+            <span class="section-label">HOW WE WORK</span>
+            <h1 class="text-gradient">Our 6-Step Process</h1>
+            <p>Our proven development process ensures your project is delivered on-time, perfectly optimized, and ready for growth.</p>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         TIMELINE SECTION
+         ========================================== -->
+    <section style="padding-bottom: 8rem;">
+        <div class="container">
+            
+            <div class="timeline">
+                
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-magnifying-glass"></i> Research & Discovery</h3>
+                        <p>We start by understanding your business goals, target audience, and competitive landscape. We discuss your requirements in detail to form a solid foundation for the project.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-chess-knight"></i> Strategy & Planning</h3>
+                        <p>We map out the website architecture, user flows, and technical requirements. This includes selecting the right technology stack and creating a detailed sitemap.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-pen-nib"></i> UI/UX Design</h3>
+                        <p>Our designers craft premium, modern interfaces (wireframes to high-fidelity mockups) ensuring the visual identity matches the premium agency standard you expect.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-code"></i> Development</h3>
+                        <p>We bring the designs to life using clean, semantic, and highly optimized code. This phase ensures mobile responsiveness, fast load times, and dynamic interactions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-bug-slash"></i> Testing & QA</h3>
+                        <p>Rigorous quality assurance across all devices and browsers. We test performance, SEO compliance, security, and fix any layout bugs before the site goes live.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-number">06</div>
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-rocket"></i> Launch & Support</h3>
+                        <p>We deploy the website to your domain, set up Google Analytics, and provide ongoing maintenance and support to ensure your digital presence remains flawless.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 5rem;" class="fade-up">
+                <a href="contact.html" id="process-cta-btn" class="btn btn-primary">Start Your Project Today &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container fade-up">
+            <div class="footer-grid">
+                
+                <!-- Col 1 -->
+                <div class="footer-brand">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Govind Web Studio Logo">
+                    </a>
+                    <p style="margin-top: 0; color: var(--primary); font-size: 0.8rem; font-weight: 600; letter-spacing: 2px;">DESIGN • DEVELOP • GROW</p>
+                    <p style="margin-top: 1.5rem;">We help businesses and brands build modern, fast and SEO-friendly websites that bring real growth and customers.</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="footer-title">COMPANY</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Services</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="footer-title">SERVICES</h4>
+                    <div class="footer-links">
+                        <a href="services.html">Website Development</a>
+                        <a href="services.html">E-Commerce Websites</a>
+                        <a href="services.html">Landing Pages</a>
+                        <a href="services.html">SEO & Optimization</a>
+                        <a href="services.html">Website Redesign</a>
+                        <a href="services.html">Website Maintenance</a>
+                    </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="footer-title">QUICK LINKS</h4>
+                    <div class="footer-links" style="margin-bottom: 2rem;">
+                        <a href="pricing.html">Pricing</a>
+                        <a href="process.html">Process</a>
+                        <a href="#">FAQs</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                    
+                    <h4 class="footer-title">CONTACT US</h4>
+                    <div class="footer-links">
+                        <a href="tel:+917257997915">+91 72579 97915</a>
+                        <a href="mailto:govindmandalgo7257@gmail.com">govindmandalgo7257@gmail.com</a>
+                        <p style="color: var(--text-secondary); margin: 0;">India</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Govind Web Studio. All Rights Reserved.</div>
+                <div>Made with ❤️ by Govind Web Studio.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917257997915" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Timeline Scroll Animation
+            if (window.innerWidth <= 580) {
+                const timeline = document.querySelector('.timeline');
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                
+                if(timeline && timelineItems.length > 0) {
+                    const progressLine = document.createElement('div');
+                    progressLine.className = 'timeline-progress-line';
+                    timeline.appendChild(progressLine);
+                    
+                    window.addEventListener('scroll', () => {
+                        const timelineRect = timeline.getBoundingClientRect();
+                        const windowHeight = window.innerHeight;
+                        
+                        // Calculate progress line height based on scroll
+                        let progress = 0;
+                        if (timelineRect.top < windowHeight / 2) {
+                            progress = Math.min(100, ((windowHeight / 2 - timelineRect.top) / timelineRect.height) * 100);
+                        }
+                        progressLine.style.height = progress + '%';
+                        
+                        // Active pulse on numbers
+                        timelineItems.forEach(item => {
+                            const rect = item.getBoundingClientRect();
+                            const number = item.querySelector('.timeline-number');
+                            // Activate when element is roughly in the middle of the screen
+                            if (rect.top < windowHeight * 0.6 && rect.bottom > windowHeight * 0.4) {
+                                if(number) number.classList.add('active-pulse');
+                            } else {
+                                if(number) number.classList.remove('active-pulse');
+                            }
+                        });
+                    }, { passive: true });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
