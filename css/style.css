@@ -1650,3 +1650,46 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 /* FLOATING WHATSAPP */
 .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 46px; height: 46px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 990; transition: var(--transition); }
 .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #1ebe57; }
+
+/* FOOLPROOF MOBILE TOGGLE FIX */
+@media (max-width: 768px) {
+    .nav-actions {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    .mobile-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 99999 !important;
+        pointer-events: auto !important;
+        color: #00e5ff !important;
+        font-size: 26px !important;
+        width: 36px !important;
+        height: 36px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        position: relative !important;
+        margin-right: 10px !important;
+    }
+    .mobile-toggle i {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 26px !important;
+        color: #00e5ff !important;
+    }
+    .navbar {
+        overflow: visible !important;
+    }
+}
+
+/* FIX MOBILE MENU Z-INDEX */
+@media (max-width: 768px) {
+    .mobile-menu {
+        z-index: 10000 !important;
+    }
+}
