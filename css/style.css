@@ -47,7 +47,7 @@
    ========================================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; background-color: var(--bg-main); }
+html { scroll-behavior: auto; font-size: 16px; background-color: var(--bg-main); }
 
 body {
     font-family: var(--font-body);
@@ -85,13 +85,10 @@ body {
         linear-gradient(90deg, rgba(0, 229, 255, 0.035) 1px, transparent 1px);
     background-size: 60px 60px;
     transform: rotateX(60deg) translateY(0);
-    animation: panGrid 40s linear infinite;
+    
     opacity: 0.8;
 }
-@keyframes panGrid {
-    0% { transform: rotateX(60deg) translateY(0); }
-    100% { transform: rotateX(60deg) translateY(60px); }
-}
+
 
 /* Ambient Orbs */
 .ambient-orb {
@@ -99,7 +96,7 @@ body {
     border-radius: 50%;
     filter: blur(150px);
     opacity: 0.3;
-    animation: floatOrb 25s ease-in-out infinite alternate;
+    
 }
 .orb-1 { width: 600px; height: 600px; background: rgba(0, 180, 255, 0.5); top: -10%; left: -10%; animation-delay: 0s; }
 .orb-2 { width: 500px; height: 500px; background: rgba(0, 100, 255, 0.4); bottom: -10%; right: -10%; animation-delay: -5s; }
@@ -107,11 +104,7 @@ body {
 .orb-4 { width: 600px; height: 600px; background: rgba(0, 229, 255, 0.3); top: 50%; left: 10%; animation-delay: -15s; }
 .orb-5 { width: 800px; height: 800px; background: rgba(0, 100, 255, 0.3); bottom: 10%; left: 40%; animation-delay: -2s; }
 
-@keyframes floatOrb {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(50px, 30px) scale(1.1); }
-    100% { transform: translate(-30px, -50px) scale(0.9); }
-}
+
 
 /* Light Waves */
 .energy-wave {
@@ -120,18 +113,14 @@ body {
     background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.03) 0%, transparent 50%);
     top: -25%; left: -25%;
     transform-origin: center;
-    animation: slowSpin 40s linear infinite;
+    
 }
 .energy-wave:nth-child(2) {
     background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.03) 0%, transparent 50%);
     top: 20%; left: 30%;
-    animation: slowSpin 50s linear infinite reverse;
+    
 }
-@keyframes slowSpin {
-    0% { transform: rotate(0deg) scale(1) translateX(0); }
-    50% { transform: rotate(180deg) scale(1.1) translateX(50px); }
-    100% { transform: rotate(360deg) scale(1) translateX(0); }
-}
+
 
 /* Particles */
 .particle {
@@ -139,20 +128,12 @@ body {
     background: #00e5ff;
     border-radius: 50%;
     box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;
-    animation: floatParticle linear infinite;
+    
     z-index: 2;
     will-change: auto;
 }
-@keyframes floatParticle {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { transform: translateY(90vh) scale(1); opacity: var(--max-opacity, 0.8); }
-    90% { transform: translateY(10vh) scale(1); opacity: var(--max-opacity, 0.8); }
-    100% { transform: translateY(-10vh) scale(0); opacity: 0; }
-}
-@keyframes twinkleParticle {
-    0%, 100% { opacity: var(--max-opacity, 0.8); }
-    50% { opacity: 0.2; }
-}
+
+
 
 /* Light Trails (SVG) */
 .light-trails {
@@ -164,15 +145,12 @@ body {
     stroke: rgba(0, 229, 255, 0.8);
     stroke-width: 1.5;
     stroke-dasharray: 200 200;
-    animation: dashTrail 10s linear infinite;
+    
 }
 .trail-2 { stroke: rgba(0, 100, 255, 0.8); stroke-width: 2; animation-duration: 15s; animation-direction: reverse; }
 .trail-3 { stroke: rgba(0, 229, 255, 0.5); stroke-width: 1; animation-duration: 20s; }
 
-@keyframes dashTrail {
-    0% { stroke-dashoffset: 400; }
-    100% { stroke-dashoffset: 0; }
-}
+
 
 /* Section Transitions (Ambient Glow behind sections) */
 section {
@@ -202,17 +180,13 @@ section::before {
 }
 .glass-card:hover::before {
     opacity: 1;
-    animation: cardReflection 3s linear infinite;
+    
 }
 .glass-card > * {
     position: relative;
     z-index: 1;
 }
-@keyframes cardReflection {
-    0% { transform: translate(-30%, -30%); }
-    50% { transform: translate(30%, 30%); }
-    100% { transform: translate(-30%, -30%); }
-}
+
 
 /* ==========================================================================
    UTILITIES
@@ -340,14 +314,10 @@ section::before {
     width: 50%; height: 100%;
     background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1), transparent);
     transform: skewX(-20deg);
-    animation: lightSweep 8s infinite;
+    
     pointer-events: none;
 }
-@keyframes lightSweep {
-    0% { left: -100%; }
-    20% { left: 200%; }
-    100% { left: 200%; }
-}
+
 
 .navbar.scrolled {
     background: rgba(2, 4, 10, 0.85); 
@@ -539,7 +509,7 @@ section::before {
         transform: translateX(30px);
     }
     .mobile-menu.active .pmm-link-item {
-        animation: slideInNav 0.5s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+        
     }
     .mobile-menu.active .pmm-link-item:nth-child(1) { animation-delay: 0.1s; }
     .mobile-menu.active .pmm-link-item:nth-child(2) { animation-delay: 0.15s; }
@@ -548,9 +518,7 @@ section::before {
     .mobile-menu.active .pmm-link-item:nth-child(5) { animation-delay: 0.3s; }
     .mobile-menu.active .pmm-link-item:nth-child(6) { animation-delay: 0.35s; }
     
-    @keyframes slideInNav {
-        to { opacity: 1; transform: translateX(0); }
-    }
+    
     
     .pmm-link-item:hover, .pmm-link-item:active {
         background: rgba(0, 242, 254, 0.05) !important;
@@ -562,12 +530,9 @@ section::before {
         background: rgba(0, 242, 254, 0.08) !important;
         border-color: rgba(0, 242, 254, 0.5) !important;
         box-shadow: 0 0 15px rgba(0, 242, 254, 0.2) !important;
-        animation: navActivePulse 2s infinite;
+        
     }
-    @keyframes navActivePulse {
-        0%, 100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
-        50% { box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
-    }
+    
     
     .pmm-icon-wrap {
         width: 36px !important;
@@ -631,7 +596,7 @@ section::before {
         height: 48px !important; /* Ensure sufficient height to prevent clipping */
         padding: 0 !important; /* Reset padding for perfect flexbox vertical centering */
         box-sizing: border-box !important;
-        animation: slideInNav 0.5s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+        
         animation-delay: 0.5s;
         opacity: 0;
         color: #000000 !important; /* Fix text contrast to be clearly visible */
@@ -646,9 +611,9 @@ section::before {
     }
     @media (prefers-reduced-motion: reduce) {
         .mobile-menu { transition: opacity 0.3s !important; transform: none !important; }
-        .pmm-link-item { transition: none !important; transform: none !important; opacity: 1 !important; animation: none !important; }
-        .pmm-cta { animation: none !important; opacity: 1 !important; }
-        .pmm-link-item.active { animation: none !important; }
+        .pmm-link-item { transition: none !important; transform: none !important; opacity: 1 !important;  }
+        .pmm-cta {  opacity: 1 !important; }
+        .pmm-link-item.active {  }
     }
 }
 
@@ -671,7 +636,7 @@ section::before {
 .hero-mockup { position: relative; width: 100%; height: 600px; perspective: 1200px; transform-style: preserve-3d; transform: none; }
 .hero-mockup *, .hero-mockup::before { animation-play-state: var(--play-state, running) !important; }
 
-.mockup-glow {
+.mockup-glow { display: none !important;
     position: absolute;
     top: 50%; left: 50%;
     width: 140%; height: 140%;
@@ -681,17 +646,14 @@ section::before {
     pointer-events: none;
     filter: blur(40px);
     will-change: auto;
-    animation: heroPulse 6s ease-in-out infinite alternate;
+    
 }
-@keyframes heroPulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-    100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-}
+
 /* Web Developer UI Mockups */
 .mockup { position: absolute; border-radius: 12px; background: rgba(5, 12, 24, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(0, 229, 255, 0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 140, 255, 0.2), inset 0 0 20px rgba(0, 229, 255, 0.1); overflow: hidden; transform-style: preserve-3d; }
 
 /* IDE / Laptop */
-.mockup-laptop { position: absolute; right: 20px; top: 50%; transform: translateY(-50%) rotateY(-15deg) rotateX(10deg); width: 520px; max-width: 100%; z-index: 10; animation: floatLaptop 8s ease-in-out infinite; }
+.mockup-laptop { position: absolute; right: 20px; top: 50%; transform: translateY(-50%) rotateY(-15deg) rotateX(10deg); width: 520px; max-width: 100%; z-index: 10;  }
 .dev-laptop { height: 320px; border-radius: 16px; border-top: 2px solid rgba(0, 229, 255, 0.8); border-left: 1px solid rgba(0, 229, 255, 0.3); display: flex; flex-direction: column; overflow: visible; box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 40px rgba(0, 229, 255, 0.25), inset 0 0 25px rgba(0, 229, 255, 0.2), inset 0 0 10px rgba(200, 0, 255, 0.05); }
 .dev-laptop::before { content: ''; position: absolute; bottom: -15px; left: -1%; width: 102%; height: 15px; background: linear-gradient(to right, #02060d, #0a1324, #02060d); border-radius: 0 0 16px 16px; border-bottom: 2px solid rgba(0, 229, 255, 0.4); transform: rotateX(85deg) translateY(7px); z-index: -1; box-shadow: 0 40px 60px rgba(0,0,0,0.95); }
 .dev-laptop::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0) 100%); pointer-events: none; border-radius: 16px; z-index: 10; }
@@ -705,34 +667,34 @@ section::before {
 .laptop-reflection { animation-duration: 10s; }
 
 /* Phone Mobile UI */
-.mockup-phone { position: absolute; left: 5%; top: 8%; z-index: 20; animation: floatPhone 9s ease-in-out infinite reverse; transform: rotateY(-20deg) rotateZ(5deg); }
+.mockup-phone { position: absolute; left: 5%; top: 8%; z-index: 20;  transform: rotateY(-20deg) rotateZ(5deg); }
 .dev-phone { width: 160px; height: 320px; border-radius: 28px; border: 4px solid #080d17; box-shadow: 0 25px 50px rgba(0,0,0,0.9), 0 0 35px rgba(0, 229, 255, 0.35), inset 0 0 15px rgba(0,229,255,0.4); background: #050b14; display: flex; flex-direction: column; overflow: visible; }
 .dev-phone::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(110deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 35%); pointer-events: none; border-radius: 24px; z-index: 10; }
 .phone-screen { position: absolute; inset: 0; border-radius: 24px; overflow: hidden; z-index: 1; }
 .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 70px; height: 16px; background: #111; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 2; }
 .phone-screen-img { width: 100%; height: 100%; object-fit: cover; object-position: top; position: absolute; top: 0; left: 0; z-index: 1; }
-.glass-reflection { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.12) 50%, transparent 65%); animation: phoneReflection 6s ease-in-out infinite; z-index: 10; }
-@keyframes phoneReflection { 0%, 20% { transform: translateX(-150%); } 80%, 100% { transform: translateX(150%); } }
+.glass-reflection { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,0.12) 50%, transparent 65%);  z-index: 10; }
+
 
 /* Floating UI Panels */
 .dev-panel { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-radius: 16px; background: rgba(5, 12, 24, 0.6); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(0, 229, 255, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,229,255,0.15), inset 0 0 10px rgba(255,0,255,0.05); position: relative; overflow: hidden; }
-.dev-panel::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent); transform: skewX(-20deg); animation: panelGlare 6s infinite; pointer-events: none; }
-@keyframes panelGlare { 0%, 40% { left: -100%; } 100% { left: 200%; } }
+.dev-panel::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent); transform: skewX(-20deg);  pointer-events: none; }
+
 .panel-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(0, 229, 255, 0.15); display: flex; align-items: center; justify-content: center; color: #00e5ff; font-size: 1.2rem; }
 .panel-icon.success { color: #27c93f; background: rgba(39, 201, 63, 0.15); }
 .perf-circle { width: 44px; height: 44px; border-radius: 50%; border: 3px solid #27c93f; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; box-shadow: 0 0 15px rgba(39, 201, 63, 0.3); }
 .panel-text h4 { font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 2px; }
 .panel-text p { font-size: 0.85rem; color: #fff; font-weight: 600; margin: 0; }
 
-.mockup-code-card { position: absolute; left: 0%; bottom: 18%; z-index: 30; animation: floatCard1 10s ease-in-out infinite; transform: translateZ(50px); }
-.mockup-preview-card { position: absolute; left: 5%; bottom: 2%; z-index: 25; animation: floatCard2 12s ease-in-out infinite reverse; transform: translateZ(40px); }
-.mockup-performance-card { position: absolute; right: -2%; top: 18%; z-index: 30; animation: floatCard1 14s ease-in-out infinite reverse; transform: translateZ(60px); border: 1px solid rgba(39, 201, 63, 0.3); }
-.mockup-deployed-card { position: absolute; right: 2%; bottom: 4%; z-index: 25; animation: floatCard2 11s ease-in-out infinite; transform: translateZ(30px); border: 1px solid rgba(39, 201, 63, 0.3); }
+.mockup-code-card { position: absolute; left: 0%; bottom: 18%; z-index: 30;  transform: translateZ(50px); }
+.mockup-preview-card { position: absolute; left: 5%; bottom: 2%; z-index: 25;  transform: translateZ(40px); }
+.mockup-performance-card { position: absolute; right: -2%; top: 18%; z-index: 30;  transform: translateZ(60px); border: 1px solid rgba(39, 201, 63, 0.3); }
+.mockup-deployed-card { position: absolute; right: 2%; bottom: 4%; z-index: 25;  transform: translateZ(30px); border: 1px solid rgba(39, 201, 63, 0.3); }
 
-@keyframes floatLaptop { 0%, 100% { transform: translateY(-50%) rotateY(-15deg) rotateX(10deg); } 50% { transform: translateY(calc(-50% - 20px)) rotateY(-15deg) rotateX(10deg); } }
-@keyframes floatPhone { 0%, 100% { transform: translateY(0) rotateY(-20deg) rotateZ(5deg); } 50% { transform: translateY(-15px) rotateY(-20deg) rotateZ(5deg); } }
-@keyframes floatCard1 { 0%, 100% { transform: translateY(0) translateZ(50px); } 50% { transform: translateY(-10px) translateZ(50px); } }
-@keyframes floatCard2 { 0%, 100% { transform: translateY(0) translateZ(40px); } 50% { transform: translateY(-15px) translateZ(40px); } }
+
+
+
+
 
 @media (max-width: 1024px) {
     .hero-container { grid-template-columns: 1fr; text-align: center; }
@@ -1063,7 +1025,7 @@ section::before {
         transform: none !important;
         margin: 6px auto 0 auto !important;
         transition: none !important;
-        animation: none !important;
+        
         
         width: calc(100% - 24px) !important;
         max-width: 450px !important;
@@ -1234,8 +1196,8 @@ section::before {
         margin-bottom: -270px !important; /* 600px * 0.55 = 330px visible height. 330 - 600 = -270px */
     } 
     /* Disable heavy animations for performance on mobile */
-    .hero-mockup *, .hero-mockup::before, .mockup-phone, .mockup-laptop, .mockup-glow { 
-        animation: none !important; 
+    .hero-mockup *, .hero-mockup::before, .mockup-phone, .mockup-laptop, .mockup-glow { display: none !important; 
+         
     }
 
     /* Compact Stats Bar for Mobile */
