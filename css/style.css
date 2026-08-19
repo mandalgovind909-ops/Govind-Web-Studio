@@ -1681,8 +1681,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 /* ==========================================================================
    ANIMATIONS (FADE UP)
    ========================================================================== */
-.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+.fade-up.visible { opacity: 1 !important; transform: none !important; }
 /* FLOATING WHATSAPP */
 .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 46px; height: 46px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 990; transition: var(--transition); }
 .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: #1ebe57; }
