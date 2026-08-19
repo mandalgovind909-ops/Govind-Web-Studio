@@ -141,7 +141,7 @@ body {
     box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;
     animation: floatParticle linear infinite;
     z-index: 2;
-    will-change: transform, opacity;
+    will-change: auto;
 }
 @keyframes floatParticle {
     0% { transform: translateY(100vh) scale(0); opacity: 0; }
@@ -264,8 +264,9 @@ section::before {
     text-transform: uppercase;
 }
 
+
 .glass-card {
-    background: rgba(5, 15, 30, 0.55);
+    background: rgba(5, 15, 30, 0.85); /* Darker fallback */
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(0, 180, 255, 0.25);
@@ -273,11 +274,17 @@ section::before {
     border-radius: 24px;
     position: relative;
     overflow: hidden;
-    transition: var(--transition);
+    transform: translateZ(0); /* Force GPU layer to prevent Android scroll culling */
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: auto;
+    transition: none; /* Disable transitions to prevent layout thrashing */
 }
+
 .glass-card:hover {
     border-color: var(--border-glow);
-    transform: translateY(-5px);
+    transform: none;
     box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 25px var(--primary-glow);
 }
 
@@ -294,7 +301,7 @@ section::before {
     color: #000; box-shadow: 0 0 25px var(--primary-glow);
 }
 .btn-primary:hover {
-    transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 229, 255, 0.5);
+    transform: none; box-shadow: 0 8px 30px rgba(0, 229, 255, 0.5);
 }
 .btn-outline { background: transparent; color: var(--text-primary); border: 1px solid var(--border-subtle); }
 .btn-outline:hover {
@@ -432,7 +439,7 @@ section::before {
         opacity: 0;
         visibility: hidden;
         transform: translateX(100%);
-        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, visibility 0.4s !important;
+        transition: none;
         z-index: 10000 !important;
         border-left: 1px solid rgba(0, 242, 254, 0.15) !important;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6) !important;
@@ -507,7 +514,7 @@ section::before {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        transition: transform 0.4s ease, color 0.3s ease !important;
+        transition: none;
     }
     .pmm-close:hover {
         transform: rotate(90deg) scale(1.1) !important;
@@ -661,7 +668,7 @@ section::before {
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* Hero Mockup Wrapper (Strict Positioning System) */
-.hero-mockup { position: relative; width: 100%; height: 600px; perspective: 1200px; transform-style: preserve-3d; transform: translateY(-40px); }
+.hero-mockup { position: relative; width: 100%; height: 600px; perspective: 1200px; transform-style: preserve-3d; transform: none; }
 .hero-mockup *, .hero-mockup::before { animation-play-state: var(--play-state, running) !important; }
 
 .mockup-glow {
@@ -673,7 +680,7 @@ section::before {
     z-index: 1;
     pointer-events: none;
     filter: blur(40px);
-    will-change: transform, opacity;
+    will-change: auto;
     animation: heroPulse 6s ease-in-out infinite alternate;
 }
 @keyframes heroPulse {
@@ -1504,14 +1511,14 @@ section::before {
 
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .portfolio-card { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-subtle); }
-.portfolio-img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.5s ease; }
+.portfolio-img { width: 100%; height: 300px; object-fit: cover; transition: none; }
 .portfolio-card:hover .portfolio-img { transform: scale(1.1); }
-.portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,4,10,0.95) 0%, rgba(2,4,10,0.2) 100%); padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: var(--transition); }
-.portfolio-card:hover .portfolio-overlay { opacity: 1; }
-.portfolio-overlay h3 { font-size: 1.25rem; margin-bottom: 0.25rem; transform: translateY(20px); transition: transform 0.4s ease; font-weight: 600; }
-.portfolio-overlay p { color: var(--primary); font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; transform: translateY(20px); transition: transform 0.4s ease 0.1s; }
-.portfolio-overlay a { transform: translateY(20px); transition: transform 0.4s ease 0.2s; }
-.portfolio-card:hover .portfolio-overlay h3, .portfolio-card:hover .portfolio-overlay p, .portfolio-card:hover .portfolio-overlay a { transform: translateY(0); }
+.portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,4,10,0.95) 0%, rgba(2,4,10,0.2) 100%); padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end; opacity: 1; transition: var(--transition); }
+
+.portfolio-overlay h3 { font-size: 1.25rem; margin-bottom: 0.25rem; transform: none; transition: none; font-weight: 600; }
+.portfolio-overlay p { color: var(--primary); font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; transform: none; transition: none; }
+.portfolio-overlay a { transform: none; transition: none; }
+.portfolio-card:hover .portfolio-overlay h3, .portfolio-card:hover .portfolio-overlay p, .portfolio-card:hover .portfolio-overlay a { transform: none; }
 
 @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; } .portfolio-overlay { opacity: 1; background: linear-gradient(to top, rgba(2,4,10,0.95) 0%, transparent 100%); transform: none !important; } .portfolio-overlay h3, .portfolio-overlay p, .portfolio-overlay a { transform: none; } }
@@ -1572,7 +1579,7 @@ section::before {
 .timeline-item:hover .timeline-content {
     border-color: var(--border-glow);
     box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 25px var(--primary-glow);
-    transform: translateY(-5px);
+    transform: none;
 }
 .timeline-content h3 {
     font-size: 1.25rem;
@@ -1619,7 +1626,7 @@ section::before {
    TESTIMONIALS (CAROUSEL)
    ========================================================================== */
 .testimonial-carousel { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; padding: 1rem 0; }
-.testimonial-track { display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.testimonial-track { display: flex; transition: none; }
 .testimonial-slide { min-width: 100%; padding: 0 1rem; }
 .testimonial-card { padding: 3rem; text-align: center; }
 .stars { color: #FBBF24; margin-bottom: 1.5rem; font-size: 1.25rem; letter-spacing: 2px; }
@@ -1629,7 +1636,7 @@ section::before {
 .client-details h4 { margin-bottom: 0; font-size: 0.95rem; font-weight: 600; }
 .client-details p { color: var(--text-secondary); font-size: 0.8rem; }
 
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border-subtle); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: var(--transition); z-index: 10; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+.carousel-btn { position: absolute; top: 50%; transform: none; background: var(--bg-card); border: 1px solid var(--border-subtle); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: var(--transition); z-index: 10; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
 .carousel-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); }
 .carousel-prev { left: 0; }
 .carousel-next { right: 0; }
@@ -1658,7 +1665,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .social-icons { display: flex; gap: 0.75rem; margin-top: 1rem; }
 .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #fff; border: 1px solid var(--border-subtle); transition: var(--transition); }
-.social-icons a:hover { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); transform: translateY(-3px); }
+.social-icons a:hover { background: var(--primary); color: #000; border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); transform: none; }
 
 @media (max-width: 1024px) { .contact-three-col { grid-template-columns: 1fr; } }
 

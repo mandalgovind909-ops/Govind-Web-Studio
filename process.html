@@ -117,27 +117,11 @@
             }
             
             /* Glowing Progress Line */
-            .timeline-progress-line {
-                position: absolute;
-                left: 20px !important;
-                top: 0;
-                width: 2px !important;
-                background: linear-gradient(to bottom, #00f2fe, #43e97b) !important;
-                box-shadow: 0 0 12px #00f2fe !important;
-                height: 0%;
-                z-index: 1;
-                transition: height 0.1s linear;
-                pointer-events: none;
-            }
+            
             
             /* Active Number Pulse */
             .timeline-number { transition: all 0.3s ease !important; }
-            .timeline-number.active-pulse {
-                box-shadow: 0 0 15px currentColor, inset 0 0 8px currentColor !important;
-                transform: scale(1.15) !important;
-                background: currentColor !important;
-                color: #000 !important;
-            }
+            
             
             #process-cta-btn {
                 width: 82% !important;
@@ -157,7 +141,7 @@
             @media (prefers-reduced-motion: reduce) {
                 
                 .timeline-content { transition: none !important; transform: none !important; }
-                .timeline-progress-line { transition: none !important; }
+                
                 .timeline-number { transition: none !important; transform: none !important; }
             }
         }
