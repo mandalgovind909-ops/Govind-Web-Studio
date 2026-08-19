@@ -111,14 +111,7 @@
             .timeline-item:nth-child(5) h3 i { color: #43e97b; }
             .timeline-item:nth-child(6) h3 i { color: #fa709a; }
             
-            /* Animations */
-            .timeline-item.fade-up {
-                transform: translateY(20px) !important;
-                transition: opacity 0.5s ease-out, transform 0.5s ease-out !important;
-            }
-            .timeline-item.fade-up.visible {
-                transform: translateY(0) !important;
-            }
+
             .timeline-content:active {
                 transform: scale(0.97) !important; /* Subtle tap lift */
             }
@@ -162,7 +155,7 @@
             }
             
             @media (prefers-reduced-motion: reduce) {
-                .timeline-item.fade-up { transition: none !important; transform: none !important; opacity: 1 !important; }
+                
                 .timeline-content { transition: none !important; transform: none !important; }
                 .timeline-progress-line { transition: none !important; }
                 .timeline-number { transition: none !important; transform: none !important; }
@@ -287,7 +280,7 @@
     <!-- ==========================================
          PAGE HEADER
          ========================================== -->
-    <header class="page-header fade-up">
+    <header class="page-header">
         <div class="container">
             <span class="section-label">HOW WE WORK</span>
             <h1 class="text-gradient">Our 6-Step Process</h1>
@@ -303,7 +296,7 @@
             
             <div class="timeline">
                 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">01</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-magnifying-glass"></i> Research & Discovery</h3>
@@ -311,7 +304,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">02</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-chess-knight"></i> Strategy & Planning</h3>
@@ -319,7 +312,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">03</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-pen-nib"></i> UI/UX Design</h3>
@@ -327,7 +320,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">04</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-code"></i> Development</h3>
@@ -335,7 +328,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">05</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-bug-slash"></i> Testing & QA</h3>
@@ -343,7 +336,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item fade-up">
+                <div class="timeline-item">
                     <div class="timeline-number">06</div>
                     <div class="timeline-content">
                         <h3><i class="fa-solid fa-rocket"></i> Launch & Support</h3>
@@ -353,7 +346,7 @@
 
             </div>
 
-            <div style="text-align: center; margin-top: 5rem;" class="fade-up">
+            <div style="text-align: center; margin-top: 5rem;" >
                 <a href="contact.html" id="process-cta-btn" class="btn btn-primary">Start Your Project Today &rarr;</a>
             </div>
 
@@ -364,7 +357,7 @@
          FOOTER
          ========================================== -->
     <footer class="footer">
-        <div class="container fade-up">
+        <div class="container">
             <div class="footer-grid">
                 
                 <!-- Col 1 -->
@@ -437,44 +430,6 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Timeline Scroll Animation
-            if (window.innerWidth <= 580) {
-                const timeline = document.querySelector('.timeline');
-                const timelineItems = document.querySelectorAll('.timeline-item');
-                
-                if(timeline && timelineItems.length > 0) {
-                    const progressLine = document.createElement('div');
-                    progressLine.className = 'timeline-progress-line';
-                    timeline.appendChild(progressLine);
-                    
-                    window.addEventListener('scroll', () => {
-                        const timelineRect = timeline.getBoundingClientRect();
-                        const windowHeight = window.innerHeight;
-                        
-                        // Calculate progress line height based on scroll
-                        let progress = 0;
-                        if (timelineRect.top < windowHeight / 2) {
-                            progress = Math.min(100, ((windowHeight / 2 - timelineRect.top) / timelineRect.height) * 100);
-                        }
-                        progressLine.style.height = progress + '%';
-                        
-                        // Active pulse on numbers
-                        timelineItems.forEach(item => {
-                            const rect = item.getBoundingClientRect();
-                            const number = item.querySelector('.timeline-number');
-                            // Activate when element is roughly in the middle of the screen
-                            if (rect.top < windowHeight * 0.6 && rect.bottom > windowHeight * 0.4) {
-                                if(number) number.classList.add('active-pulse');
-                            } else {
-                                if(number) number.classList.remove('active-pulse');
-                            }
-                        });
-                    }, { passive: true });
-                }
-            }
-        });
-    </script>
+    
 </body>
 </html>

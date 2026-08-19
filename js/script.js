@@ -133,20 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
             else navbar.classList.remove('scrolled');
         });
     }
-
-    // 4. Fade Up Intersection Observer
-    const fadeElements = document.querySelectorAll('.fade-up');
-    const fadeObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(el => fadeObserver.observe(el));
-
     // 5. Portfolio Filter
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-item');
