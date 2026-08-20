@@ -1693,3 +1693,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
         z-index: 10000 !important;
     }
 }
+
+/* FIX MOBILE NAV ITEM VISIBILITY */
+@media (max-width: 768px) {
+    .pmm-link-item, .pmm-cta, .mobile-menu a, .mobile-menu > a:not(.pmm-cta) {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+}
