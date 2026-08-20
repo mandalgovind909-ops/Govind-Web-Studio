@@ -1196,7 +1196,8 @@ section::before {
         margin-bottom: -270px !important; /* 600px * 0.55 = 330px visible height. 330 - 600 = -270px */
     } 
     /* Disable heavy animations for performance on mobile */
-    .hero-mockup *, .hero-mockup::before, .mockup-phone, .mockup-laptop, .mockup-glow { display: none !important; 
+    .hero-mockup *, .hero-mockup::before, .mockup-phone, .mockup-laptop { }
+    .mockup-glow { display: none !important; 
          
     }
 
