@@ -296,10 +296,18 @@
     <script src="js/script.js"></script>
 
 <script>
+// =========================================================================
+// SUPABASE CONFIGURATION
+// Replace these with your actual Supabase project URL and anon public key.
+// Do NOT use your secret service_role key here.
+// =========================================================================
+const SUPABASE_URL = 'https://anepvcwvorunkvtgegjn.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_ysxJRzjUp9pPHho_v8jQBQ_H8TsMvQg';
+
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById('enquiry-form');
     if(form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const btn = document.getElementById('submit-btn');
@@ -329,29 +337,51 @@ document.addEventListener("DOMContentLoaded", function() {
             // Disable button
             btn.disabled = true;
             btn.innerText = 'Sending...';
-            
-            // Format WhatsApp Message
-            const waNumber = '917257997915';
-            let waText = `Hello Govind Web Studio, I have a new enquiry:\n\n`;
-            waText += `*Name:* ${name}\n`;
-            waText += `*Email:* ${email}\n`;
-            waText += `*Phone:* ${phone}\n`;
-            waText += `*Business:* ${business}\n`;
-            waText += `*Budget:* ${budget}\n`;
-            waText += `*Service:* ${service}\n`;
-            waText += `*Message:* ${message}`;
-            
-            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
-            
-            // Open WhatsApp
-            window.open(waUrl, '_blank');
-            
-            // Show Success Message
-            msgDiv.style.display = 'block';
-            msgDiv.style.backgroundColor = 'rgba(39, 201, 63, 0.1)';
-            msgDiv.style.color = '#27c93f';
-            msgDiv.style.border = '1px solid #27c93f';
-            msgDiv.innerText = 'Redirecting to WhatsApp... Thank you!';
+
+            // [NEW] Supabase Database Save
+            try {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({ name, email, phone, business, budget, service, message })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Database response was not ok');
+                }
+
+                // Trigger Email Notification via Supabase Edge Function
+                // Fire and forget so it doesn't block the UI or fail the form submission
+                fetch(`${SUPABASE_URL}/functions/v1/contact-notification`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, phone, business, budget, service, message })
+                }).catch(err => console.error("Edge function email notification failed:", err));
+
+
+                // Show Success Message
+                msgDiv.style.display = 'block';
+                msgDiv.style.backgroundColor = 'rgba(39, 201, 63, 0.1)';
+                msgDiv.style.color = '#27c93f';
+                msgDiv.style.border = '1px solid #27c93f';
+                msgDiv.innerText = 'Thank you! Your enquiry has been successfully sent.';
+                
+            } catch (error) {
+                console.error("Database save failed:", error);
+                
+                // Show Error Message
+                msgDiv.style.display = 'block';
+                msgDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
+                msgDiv.style.color = '#ff6b6b';
+                msgDiv.style.border = '1px solid #ff6b6b';
+                msgDiv.innerText = 'Failed to send enquiry. Please try again.';
+            }
             
             // Reset form and button after 3 seconds
             setTimeout(() => {
