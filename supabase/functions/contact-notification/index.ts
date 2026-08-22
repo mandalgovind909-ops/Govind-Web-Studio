@@ -27,7 +27,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "onboarding@resend.dev",
-        to: "mandalgovind909@gmail.com",
+        to: ["mandalgovind909@gmail.com"],
         subject: `New Enquiry from ${name}`,
         html: `
           <h2>New Website Enquiry</h2>

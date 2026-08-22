@@ -364,7 +364,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     body: JSON.stringify({ name, email, phone, business, budget, service, message })
                 }).catch(err => console.error("Edge function email notification failed:", err));
 
-
                 // Show Success Message
                 msgDiv.style.display = 'block';
                 msgDiv.style.backgroundColor = 'rgba(39, 201, 63, 0.1)';

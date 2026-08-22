@@ -423,10 +423,7 @@ section::before {
     }
     
     /* Simple Mobile Menu styling */
-    .mobile-menu:not(:has(.pmm-header)) {
-        padding: 7rem 2.5rem 3rem !important;
-        gap: 1.5rem !important;
-    }
+    
     .mobile-menu > a:not(.pmm-cta) {
         font-family: var(--font-heading);
         font-size: 1.5rem;
@@ -1023,7 +1020,7 @@ section::before {
         z-index: 1000 !important;
         left: 0 !important;
         transform: none !important;
-        margin: 0 auto !important;
+        margin: 6px auto 0 auto !important;
         transition: none !important;
         
         
